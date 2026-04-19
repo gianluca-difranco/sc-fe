@@ -10,6 +10,7 @@ import PlayerList from './pages/PlayerList';
 import Calendar from './pages/Calendar';
 import NextMatch from './pages/NextMatch';
 import Users from './pages/Users';
+import Calculate from './pages/Calculate';
 
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useAuth();
@@ -29,6 +30,7 @@ function AppRoutes() {
         <Route path="players" element={<PlayerList />} />
         <Route path="calendar" element={<Calendar />} />
         <Route path="next-match" element={<NextMatch />} />
+        <Route path="calculate" element={<Calculate />} />
       </Route>
     </Routes>
   );
