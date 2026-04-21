@@ -11,6 +11,7 @@ import Calendar from './pages/Calendar';
 import NextMatch from './pages/NextMatch';
 import Users from './pages/Users';
 import Calculate from './pages/Calculate';
+import Messages from './pages/Messages';
 
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useAuth();
@@ -31,6 +32,7 @@ function AppRoutes() {
         <Route path="calendar" element={<Calendar />} />
         <Route path="next-match" element={<NextMatch />} />
         <Route path="calculate" element={<Calculate />} />
+        <Route path="messages" element={<Messages />} />
       </Route>
     </Routes>
   );

@@ -9,7 +9,8 @@ import {
   Calendar,
   Swords,
   LogOut,
-  Calculator
+  Calculator,
+  MessageSquare
 } from 'lucide-react';
 
 
@@ -57,6 +58,13 @@ const Sidebar = () => {
           <NavLink to="/calculate" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
             <Calculator size={20} />
             Calcolo
+          </NavLink>
+        )}
+
+        {user?.role === 'TA' && (
+          <NavLink to="/messages" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+            <MessageSquare size={20} />
+            Messaggi
           </NavLink>
         )}
 
