@@ -9,7 +9,7 @@ const Users = () => {
 
   // Form states
   const [showAddUser, setShowAddUser] = useState(false);
-  const [newUser, setNewUser] = useState({ email: '', password: '', role: 'TU' });
+  const [newUser, setNewUser] = useState({ email: '', role: 'TU' });
 
   const fetchUsers = async () => {
     try {
@@ -35,7 +35,7 @@ const Users = () => {
     try {
       await api.post('/users/', newUser);
       setShowAddUser(false);
-      setNewUser({ email: '', password: '', role: 'TU' });
+      setNewUser({ email: '', role: 'TU' });
       fetchUsers();
     } catch (err) {
       console.error(err);
@@ -60,40 +60,30 @@ const Users = () => {
 
       {showAddUser && (
         <div className="glass-card" style={{ padding: '2rem', marginBottom: '2rem' }}>
-          <h3>Nuovo Utente</h3>
+          <h3 style={{ marginBottom: '1.5rem' }}>Nuovo Utente</h3>
           <form onSubmit={handleAddUser} style={{ display: 'flex', gap: '1rem', alignItems: 'flex-end' }}>
             <div style={{ flex: 1 }}>
-              <label>Email</label>
+              <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-muted)' }}>Email</label>
               <input 
                 type="email" 
+                className="form-input"
                 value={newUser.email} 
                 onChange={(e) => setNewUser({...newUser, email: e.target.value})} 
                 required 
-                style={{ width: '100%', padding: '0.5rem', marginTop: '0.5rem' }} 
               />
             </div>
-            <div style={{ flex: 1 }}>
-              <label>Password</label>
-              <input 
-                type="password" 
-                value={newUser.password} 
-                onChange={(e) => setNewUser({...newUser, password: e.target.value})} 
-                required 
-                style={{ width: '100%', padding: '0.5rem', marginTop: '0.5rem' }} 
-              />
-            </div>
-            <div style={{ width: '120px' }}>
-              <label>Ruolo</label>
+            <div style={{ width: '150px' }}>
+              <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-muted)' }}>Ruolo</label>
               <select 
+                className="form-input"
                 value={newUser.role} 
                 onChange={(e) => setNewUser({...newUser, role: e.target.value})} 
-                style={{ width: '100%', padding: '0.5rem', marginTop: '0.5rem' }}
               >
                 <option value="TU">TU (Normale)</option>
                 <option value="TA">TA (Admin)</option>
               </select>
             </div>
-            <button type="submit" className="btn-primary" style={{ padding: '0.6rem 1.5rem' }}>Salva</button>
+            <button type="submit" className="btn-primary">Salva</button>
           </form>
         </div>
       )}

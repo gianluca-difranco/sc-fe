@@ -60,7 +60,7 @@ const Messages = () => {
           </label>
           <textarea
             id="msg-content"
-            className="input-field"
+            className="form-input"
             rows={5}
             placeholder="Scrivi il tuo messaggio qui..."
             value={content}

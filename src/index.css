@@ -11,6 +11,14 @@
   --border: rgba(255, 255, 255, 0.1);
   --danger: #ef4444;
   --pitch-bg: linear-gradient(180deg, #1e3a8a 0%, #172554 100%);
+
+  /* Alias per uniformità componenti */
+  --text-primary: var(--text-main);
+  --text-secondary: var(--text-muted);
+  --card-bg: var(--bg-card);
+  --sidebar-bg: rgba(15, 23, 42, 0.98);
+  --accent: var(--primary);
+  --accent-dark: var(--primary-hover);
 }
 
 * {
@@ -91,6 +99,27 @@ button {
 .input-field:focus {
   border-color: var(--primary);
   outline: none;
+}
+
+.form-input {
+  width: 100%;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  transition: border-color 0.2s ease;
+}
+
+.form-input:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.page-container {
+  padding: 0;
 }
 
 .layout-container {

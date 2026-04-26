@@ -57,21 +57,21 @@ const PlayerList = () => {
           <h3>Nuovo Giocatore</h3>
           <form onSubmit={handleAddPlayer} style={{ display: 'flex', gap: '1rem', alignItems: 'flex-end' }}>
             <div style={{ flex: 1 }}>
-              <label>Nome</label>
+              <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-muted)' }}>Nome</label>
               <input 
                 type="text" 
+                className="form-input"
                 value={newPlayer.name} 
                 onChange={(e) => setNewPlayer({...newPlayer, name: e.target.value})} 
                 required 
-                style={{ width: '100%', padding: '0.5rem', marginTop: '0.5rem' }} 
               />
             </div>
-            <div style={{ width: '100px' }}>
-              <label>Ruolo</label>
+            <div style={{ width: '120px' }}>
+              <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-muted)' }}>Ruolo</label>
               <select 
+                className="form-input"
                 value={newPlayer.role} 
                 onChange={(e) => setNewPlayer({...newPlayer, role: e.target.value})} 
-                style={{ width: '100%', padding: '0.5rem', marginTop: '0.5rem' }}
               >
                 <option value="P">P</option>
                 <option value="D">D</option>
@@ -80,14 +80,14 @@ const PlayerList = () => {
               </select>
             </div>
             <div style={{ width: '100px' }}>
-              <label>Costo</label>
+              <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-muted)' }}>Costo</label>
               <input 
                 type="number" 
+                className="form-input"
                 min="1" 
                 value={newPlayer.credits} 
                 onChange={(e) => setNewPlayer({...newPlayer, credits: parseInt(e.target.value)})} 
                 required 
-                style={{ width: '100%', padding: '0.5rem', marginTop: '0.5rem' }} 
               />
             </div>
             <button type="submit" className="btn-primary" style={{ padding: '0.6rem 1.5rem' }}>Salva</button>
