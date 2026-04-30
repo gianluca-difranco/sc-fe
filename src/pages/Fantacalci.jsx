@@ -14,8 +14,8 @@ const Fantacalci = () => {
     name: '',
     admin_email: '',
     allow_duplicate_players: false,
-    lineup_size: 11,
-    bench_size: 7,
+    lineup_size: 5,
+    bench_size: 5,
     role_constraints: null,
   });
 
@@ -45,8 +45,8 @@ const Fantacalci = () => {
         name: '',
         admin_email: '',
         allow_duplicate_players: false,
-        lineup_size: 11,
-        bench_size: 7,
+        lineup_size: 5,
+        bench_size: 5,
         role_constraints: null,
       });
       fetchTenants();

@@ -39,6 +39,31 @@ const PlayerList = () => {
     }
   };
 
+  const handleImportCSV = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      setLoading(true);
+      await api.post('/players/import', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+      fetchPlayers();
+      alert('Importazione completata con successo!');
+    } catch (err) {
+      console.error(err);
+      alert(err.response?.data?.detail || 'Errore durante l\'importazione');
+    } finally {
+      setLoading(false);
+      e.target.value = null; // Reset input
+    }
+  };
+
   if (loading) return <div>Caricamento...</div>;
 
   return (
@@ -46,9 +71,20 @@ const PlayerList = () => {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <h1 className="page-title">Listone</h1>
         {user?.role === 'TA' && (
-          <button className="btn-primary" onClick={() => setShowAddForm(!showAddForm)}>
-            {showAddForm ? 'Annulla' : 'Aggiungi giocatore'}
-          </button>
+          <div style={{ display: 'flex', gap: '1rem' }}>
+            <label className="btn-primary" style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
+              Importa tramite CSV
+              <input 
+                type="file" 
+                accept=".csv" 
+                style={{ display: 'none' }} 
+                onChange={handleImportCSV} 
+              />
+            </label>
+            <button className="btn-primary" onClick={() => setShowAddForm(!showAddForm)}>
+              {showAddForm ? 'Annulla' : 'Aggiungi giocatore'}
+            </button>
+          </div>
         )}
       </div>
 
