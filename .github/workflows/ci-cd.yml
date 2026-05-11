@@ -13,6 +13,7 @@ jobs:
   push-to-ecr:
     name: Build e Push su ECR
     runs-on: ubuntu-latest
+    environment: "AWS image deploy"
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
