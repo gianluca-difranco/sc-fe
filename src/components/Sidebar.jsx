@@ -47,8 +47,8 @@ const Sidebar = () => {
               </NavLink>
             </div>
 
-            <button 
-              className="nav-dropdown-btn" 
+            <button
+              className="nav-dropdown-btn"
               onClick={() => setFantaOpen(!fantaOpen)}
               style={{ marginTop: '1rem' }}
             >
@@ -85,8 +85,8 @@ const Sidebar = () => {
 
             {user?.role === 'TA' && (
               <>
-                <button 
-                  className="nav-dropdown-btn" 
+                <button
+                  className="nav-dropdown-btn"
                   onClick={() => setAdminOpen(!adminOpen)}
                   style={{ marginTop: '0.5rem' }}
                 >
