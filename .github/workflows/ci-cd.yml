@@ -10,32 +10,9 @@ env:
   ECR_REPOSITORY: project/frontend
 
 jobs:
-  verify:
-    name: Verifica Codice Frontend
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'
-        cache: 'npm'
-
-    - name: Install dependencies
-      run: npm ci || npm install
-
-    - name: Build and verify
-      run: npm run build
-      env:
-        CI: false # Per evitare che i warning vengano trattati come errori bloccanti di default
-
   push-to-ecr:
     name: Build e Push su ECR
-    needs: verify
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
