@@ -11,7 +11,7 @@ const NextMatch = () => {
         const teamRes = await api.get('/teams/mine');
         const myTeamId = teamRes.data.id;
         
-        const matchesRes = await api.get('/matches');
+        const matchesRes = await api.get('/matches/');
         // Troviamo il primo match non giocato per questa squadra
         const upcoming = matchesRes.data.find(m => 
           (m.home_team_id === myTeamId || m.away_team_id === myTeamId) && 

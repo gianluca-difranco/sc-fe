@@ -13,7 +13,7 @@ const PlayerList = () => {
 
   const fetchPlayers = async () => {
     try {
-      const res = await api.get('/players');
+      const res = await api.get('/players/');
       setPlayers(res.data);
     } catch (err) {
       console.error(err);

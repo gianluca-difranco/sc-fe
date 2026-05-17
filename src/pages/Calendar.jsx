@@ -10,7 +10,7 @@ const Calendar = () => {
 
   const fetchMatches = async () => {
     try {
-      const res = await api.get('/matches');
+      const res = await api.get('/matches/');
       setMatches(res.data);
     } catch (err) {
       console.error(err);
@@ -26,7 +26,7 @@ const Calendar = () => {
   const handleGenerateCalendar = async () => {
     try {
       setGenerating(true);
-      const teamsRes = await api.get('/teams');
+      const teamsRes = await api.get('/teams/');
       const teams = teamsRes.data;
       if (teams.length < 2) {
         alert('Servono almeno 2 squadre per generare il calendario.');

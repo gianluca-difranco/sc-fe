@@ -19,8 +19,8 @@ const Teams = () => {
   const fetchData = async () => {
     try {
       const [teamsRes, playersRes] = await Promise.all([
-        api.get('/teams'),
-        api.get('/players')
+        api.get('/teams/'),
+        api.get('/players/')
       ]);
       setTeams(teamsRes.data);
       setPlayers(playersRes.data);

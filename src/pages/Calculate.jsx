@@ -24,7 +24,7 @@ const Calculate = () => {
     }
     try {
       setPlayersLoading(true);
-      const res = await api.get('/players');
+      const res = await api.get('/players/');
       setPlayers(res.data);
       setBonuses({});
     } catch (err) {
